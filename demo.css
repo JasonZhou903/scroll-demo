@@ -1,0 +1,86 @@
+/* Layout - Page building blocks
+/* ---------------------------------------------------------- */
+body {
+  position: relative;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+/* Right Percent Label - Page building blocks
+/* ---------------------------------------------------------- */
+
+.percent-label {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  width: 100px;
+  height: 100px;
+  margin-top: -50px;
+  line-height: 100px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, .8);
+  color: #fff;
+  border-radius: 50%;
+}
+
+/* Bottom srcoll range bar - Page building blocks
+/* ---------------------------------------------------------- */
+
+.range-bar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 1px 0 3px 0 rgba(0,0,0,.3);
+}
+
+#range-bar {
+  width: 100%;
+  margin: 30px 0;
+}
+
+/* Tip mask - Page building blocks
+/* ---------------------------------------------------------- */
+
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .8);
+  color: #fff;
+}
+
+.tip {
+  position: fixed;
+  left: 0;
+  bottom: 100px;
+  width: 100%;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
