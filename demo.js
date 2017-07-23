@@ -10,13 +10,13 @@
 
     updatePercent() {
       const { percentLabel, rangeBar  } = this.elements
-      const scrollTop = document.body.scrollTop
+      const scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop
       const docHeight = document.body.scrollHeight
       const winHeight = window.innerHeight
       const scrollPercent = (scrollTop) / (docHeight - winHeight)
       const scrollPercentRounded = Math.round(scrollPercent * 100)
 
-      percentLabel.textContent = scrollPercentRounded
+      percentLabel.textContent = scrollPercentRounded > 100 ? 100 : scrollPercentRounded
       rangeBar.value = scrollPercent * 100
     }
 
@@ -26,11 +26,11 @@
       const winHeight = window.innerHeight
       const scrollTop = (docHeight - winHeight) * rangeVal / 100
 
-      window.scroll(0, scrollTop)
+      window.scrollTo(0, scrollTop)
     }
 
     hideMask() {
-      this.elements.mask.classList = 'hidden'
+      this.elements.mask.className = 'hidden'
     }
 
     init() {
@@ -41,6 +41,8 @@
       window.addEventListener('resize', this.updatePercent.bind(this))
       // Update the window scroll position when range bar changes
       rangeBar.addEventListener('input', this.handleRangeBarChange.bind(this))
+      // IE11 only supports change event
+      rangeBar.addEventListener('change', this.handleRangeBarChange.bind(this))
       // Hide the tip and mask when body clicked
       document.body.addEventListener('click', this.hideMask.bind(this))
     }
